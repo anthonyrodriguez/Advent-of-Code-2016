@@ -1,8 +1,6 @@
-from __future__ import print_function
 import copy
-import pdb
-"""
-start_state = [ ['GA', 'MA', 'E'],
+
+start_state = [ ['GA', 'MA', 'GF', 'MF', 'GG', 'MG', 'E'],
                 ['GB', 'GC', 'GD', 'GE'],
                 ['MB', 'MC', 'MD', 'ME'],
                 [],
@@ -18,7 +16,7 @@ dup_state =   [ ['MB', 'MA', 'E'],
                 ['GB'],
                 [],
                 2 ]
-
+"""
 
 
 state_queue = []
@@ -48,7 +46,7 @@ def is_end_state(state):
     return (len(state[3]) == total_items)
 
 def print_state(state):
-    print(state, end='\r')
+    print(state)
 
 def hash_state(state):
     toReturn = ''
@@ -83,9 +81,6 @@ def hash_state(state):
         toReturn += str(num_mic)
     return int(toReturn)
 
-"""def hash_state(state):
-    return str(state)
-"""
 
 # gonna try a BFS while remembering visited states.
 # visited states currently don't keep track of equivalent permutations 
@@ -124,7 +119,6 @@ while state_queue:
                     print(new_state)
                     print(steps)
                     exit()
-                print_state(new_state)
                 state_queue.append(new_state)
                 visited_state_hash[hash_state(new_state)] = 1
 
@@ -139,7 +133,6 @@ while state_queue:
                     print(new_state)
                     print(steps)
                     exit()
-                print_state(new_state)
                 state_queue.append(new_state)
                 visited_state_hash[hash_state(new_state)] = 1
 
@@ -161,7 +154,6 @@ while state_queue:
                             print(new_state)
                             print(steps)
                             exit()
-                        print_state(new_state)
                         state_queue.append(new_state)
                         visited_state_hash[hash_state(new_state)] = 1
 
@@ -179,7 +171,6 @@ while state_queue:
                             print(new_state)
                             print(steps)
                             exit()
-                        print_state(new_state)
                         state_queue.append(new_state)
                         visited_state_hash[hash_state(new_state)] = 1
 
